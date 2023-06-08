@@ -1,0 +1,133 @@
+Use HTTPS on Localhost (XAMPP, Windows)
+ https-on-localhost.md
+Sometimes some websites require https to work. This can be useful in those cases.
+
+This has been tested with XAMPP (PHP 7.0.8) on Windows 7. Please see the Reference links at the end if in confusion about some step.
+
+STEP 1: Editing Configs
+Open:
+
+C:\xampp\php\php.ini
+In this ini file semi colon (;) is used to comment a line. We want to use openssl library, so we have to make sure the line for openssl is not commented.
+
+Remove semi colon (;) in front of the line, if there is any:
+
+extension=php_openssl.dll
+Search for "date.timezone". Make this your timezone. I have chosen Europe/London as a standard. Check this page for your timezone (http://php.net/manual/en/timezones.php)
+
+date.timezone=Europe/London
+(Optional) Now uncomment this to to be able to debug:
+
+zend_extension="C:\xampp\php\ext\php_xdebug.dll" 
+Save.
+
+Now, open: C:\xampp\apache\conf\httpd.conf
+
+Make sure that this is uncommented (no semi colon - ;)
+
+LoadModule rewrite_module modules/mod_rewrite.so
+Make sure that you enter your username on this line
+
+User user
+For example:
+
+User john
+Save.
+
+STEP 2: Create the Certificate
+Open Command Prompt, then enter:
+
+cd /D C:\xampp\apache
+(Assuming you have installed xampp in C:\xampp\apache)
+
+Now enter:
+
+makecert
+Now you should see this:
+
+C:\xampp\apache>makecert
+Loading 'screen' into random state - done
+Generating a 1024 bit RSA private key
+............................++++++
+.....................................++++++
+writing new private key to 'privkey.pem'
+Enter PEM pass phrase:
+Enter in a pass phrase for decrypting your private server key, and press Enter.
+
+It will say:
+
+Verifying - Enter PEM pass phrase:
+Enter the passphrase again, press enter. Now you will see this:
+
+-----
+You are about to be asked to enter information that will be incorporated into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:
+We have entered London in our timezone so I am choosing the 2 letter code GB (for United Kingdom). You can find yours here: http://www.worldatlas.com/aatlas/ctycodes.htm
+
+For some fields you can just press enter to skip fields. They are not necessary for the certificate to work.
+
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+For Common Name enter localhost. It is important that this common name match the address that goes into a browser, otherwise you will get extra warnings when navigating to your secure web pages. In our case this would be localhost.
+
+Common Name (e.g. server FQDN or YOUR name) []:
+Then it will say this:
+
+Email Address []:
+You can press enter. Then:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+You can safely skip these inputs by pressing enter.
+
+Then it will say:
+
+Enter pass phrase for privkey.pem:
+Now enter the passphrase that you chose earlier.
+
+Now this should succeed with a message:
+
+writing RSA key
+Signature ok
+subject=/C=GB/ST=Some-State/O=Internet Widgits Pty Ltd/CN=localhost
+Getting Private key
+        1 file(s) moved.
+        1 file(s) moved.
+
+-----
+Das Zertifikat wurde erstellt.
+The certificate was provided.
+
+Press any key to continue . . .
+You are now finished creating your SSL certificate and private key. When we ran makecert, it actually ran a makecert.bat script. The makecert.bat script will move your server private key and certificates in the appropriate directories for you.
+
+STEP 3:
+Now go to start menu, type the following and enter:
+
+certmgr.msc
+Double click "Trusted Root Certification Authorities". Right click "Certificates", choose All Tasks -> Import...
+
+Click Next. It will ask to choose the certificate file. Click Browse and choose C:\xampp\apache\conf\ssl.crt\server.crt Click Next. Next again, then Finish.
+
+This will bring you a message. Click Yes. Then it should say Import was successful. Click OK.
+
+STEP 4: Restart XAMPP services
+I just stopped the Apache and MySQL service from XAMPP Control Panel, and when they stopped, I just started them again.
+
+This should now enable https on localhost.
+
+STEP 4: Now test!
+Now access https://localhost in your browser.
+
+Reference: https://www.youtube.com/watch?v=jKVjpA1Gq6o https://jaswanttak.wordpress.com/2010/04/15/configure-ssl-on-xampp-and-windows/
+
+ @mikehains
