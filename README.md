@@ -10,7 +10,7 @@
 - Developers: Heider Jeffer and Opaniyi Ayokunmi.
 - Supervisor Prof Sven Helmer
 - Live: http://localhost/System-Security/index.php
-- Link: https://github.com/HeiderJeffer/Project-for-System-Security
+- Link: https://github.com/HeiderJeffer/System-Security
 -  Build an ecommerce website
 -  Securing ecommerce website and its DB against Cyber Threats
 -  Securing User account and his/her Credit Cards against Cyber Threats
