@@ -1,0 +1,33 @@
+Not Solved
+Access forbidden!
+New XAMPP security concept:
+
+Access to the requested object is only available from the local network.
+
+This setting can be configured in the file "httpd-xampp.conf"
+
+
+Solution
+
+1. in Windows search bar copy paste :
+C:\xampp\apache\conf\extra
+
+2. Scroll down open 
+httpd-xampp.conf
+with editor (sublime, notepad,etc.
+
+3. press ctrl f, search bar copy past:
+phpmyadmin 
+
+4. Error is : Require local, 
+  Alias /phpmyadmin "C:/xampp/phpMyAdmin/"
+    <Directory "C:/xampp/phpMyAdmin">
+        AllowOverride AuthConfig
+        Require local
+        ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
+		SSLRequireSSL
+    </Directory>
+5. change it to:
+Require All granted
+
+6. Save change close the editer, restart xampp , phpmyadmin will work.
