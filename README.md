@@ -22,4 +22,11 @@
 - Protecting the buyers privacy and accounts security (e.g, password_hash, users purchases, users Master Cards, Credit card)
 
 
+https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/1.JPG
+https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/2.JPG
+https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/3.JPG
+https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/4.JPG
+
+
+
 
