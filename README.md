@@ -23,7 +23,7 @@
 
 
 
-![alt text](https://github.com/HeiderJeffer/Project-for-System-Security/blob/master/images/5.jpg)
+![alt text](https://github.com/HeiderJeffer/System-Security/tree/main/img/5.jpg)
 
 ![alt text](https://github.com/HeiderJeffer/Project-for-System-Security/blob/master/images/1.jpg)
 
