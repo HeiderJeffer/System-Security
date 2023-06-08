@@ -21,9 +21,13 @@
 - Protecting the buyers rights (Implement Amazon AZ policy in our Website)
 - Protecting the buyers privacy and accounts security (e.g, password_hash, users purchases, users Master Cards, Credit card)
 
-
+# Pages: Home, Jackets, Shoping, Login..
 ![alt text](https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/1.JPG)
 ![alt text](https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/2.JPG)
 ![alt text](https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/3.JPG)
 ![alt text](https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/4.JPG)
 ![alt text](https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/5.JPG)
+
+
+# DB Design and modeling
+![alt text](https://github.com/HeiderJeffer/System-Security/blob/main/screenshot/6.JPG)
